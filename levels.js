@@ -1,4 +1,3 @@
-const level = require('./commands/level')
 const mongo = require('./mongo')
 const profileSchema = require('./schemas/profile-schema')
 
