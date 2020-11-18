@@ -1,7 +1,7 @@
 const loadCommands = require('../load-commands')
 const { prefix } = require('../../config.json')
 
-module.exports = {
+/*module.exports = {
     commands: ['help', 'commands'],
     description: 'A list of all the commands of FutureBot.',
     callback: (message, arguments, text) => {
@@ -40,4 +40,4 @@ module.exports = {
 
         message.channel.send(reply)
     },
-}
+}*/

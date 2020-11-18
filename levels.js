@@ -1,4 +1,4 @@
-const mongo = require('./mongo')
+/*const mongo = require('./mongo')
 const profileSchema = require('./schemas/profile-schema')
 
 module.exports = (client) => {
@@ -58,4 +58,4 @@ const addXP = async (guildId, userId, xpToAdd, message) => {
     })
 }
 
-module.exports.addXP = addXP
+module.exports.addXP = addXP*/

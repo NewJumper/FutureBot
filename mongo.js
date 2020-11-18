@@ -1,8 +1,7 @@
 const mongoose = require('mongoose')
-const { mongoPath } = require('./config.json')
 
 module.exports = async () => {
-    await mongoose.connect(mongoPath, {
+    await mongoose.connect('mongodb+srv://NewJumper:56XG7Yq3ZWNQMhdf@futurebot.xpqey.mongodb.net/Data', {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })

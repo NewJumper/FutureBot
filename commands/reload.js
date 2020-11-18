@@ -1,5 +1,5 @@
 module.exports = {
-    commands: ['reload'],
+    commands: ['reload', 'end'],
     expectedArgs: '',
     permissionError: 'You don\'t have permission to run this command',
     minArgs: 0,

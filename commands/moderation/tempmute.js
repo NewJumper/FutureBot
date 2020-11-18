@@ -48,6 +48,7 @@ module.exports = {
                 .setTitle(`🔉 UNMUTED`)
                 .setDescription(`**${member1.user} has been unmuted**\n\n**Reason:** ${reason}`)
                 .setTimestamp();
+                
             message.channel.send(tempmute2Embed);
             }
         }, ms(time));
