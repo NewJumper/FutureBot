@@ -6,6 +6,7 @@ module.exports = {
     minArgs: 2,
     maxArgs: 2,
     permissions: 'ADMINISTRATOR',
+    description: 'Give coins to specified users.',
     callback: async (message, arguments) => {
         const mention = message.mentions.users.first()
 

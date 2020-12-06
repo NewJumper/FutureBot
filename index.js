@@ -5,21 +5,22 @@ const mongoose = require('mongoose')
 const config = require('./config.json')
 const mongo = require('./mongo')
 const loadCommands = require('./commands/load-commands')
-//const levels = require('./levels')
-
-//mongoose.connect('mongodb+srv://NewJumper:56XG7Yq3ZWNQMhdf@futurebot.xpqey.mongodb.net/Data', { useNewUrlParser: true, useUnifiedTopology: true })
 
 client.once('ready', async () => {
-	console.log('ONLINE')
-	client.user.setActivity(`MOOT saying HMMMMM...`, { type: 'LISTENING' })
+	console.log('[+] Online')
+	client.user.setActivity(`in v0.13.0`)
 
-	await mongo().then((mongoose) => {
-		try {
-			console.log('Connected to MONGO')
-		} finally {
-			mongoose.connection.close()
-		}
-	})
+	const connectToMongoDB = async () => {
+		await mongo().then((mongoose) => {
+			try {
+				console.log('[+] Connected to MongoDB')
+			} finally {
+				mongoose.connection.close()
+			}
+		})
+	}
+	
+	connectToMongoDB()
 
 	loadCommands(client)
 })

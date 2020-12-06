@@ -4,6 +4,7 @@ module.exports = {
     commands: ['balance', 'bal'],
     expectedArgs: '',
     maxArgs: 1,
+    description: 'View your\'s or a specified user\'s balance.',
     callback: async (message, arguments, text) => {
         const target = message.mentions.users.first() || message.author
         const targetId = target.id
@@ -13,6 +14,6 @@ module.exports = {
 
         const coins = await economy.getCoins(guildId, userId)
 
-        message.channel.send(`That user has ${coins} coins!`)
+        message.channel.send(`<@${userId}> has ${coins} coins!`)
     },
 }

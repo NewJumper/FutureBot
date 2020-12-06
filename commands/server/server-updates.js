@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = {
-    commands: ['updates', 'server-updates'],
+    commands: ['server-updates', 'updates'],
     expectedArgs: '',
     permissionError: 'You don\'t have permission to run this command',
     minArgs: 0,
@@ -13,11 +13,10 @@ module.exports = {
 
         const update1Embed = new Discord.MessageEmbed()
             .setColor('#1b70bf')
-            .setTitle('**Server Update 2.3.1**')
-            .setDescription(`+ added #📈▸futurebot-updates 
-            + added emojis to Category names
-            + added unicode characters to all role names (@₪  Corporate @◈ Division @⌬ What About Dem Bots @✦ OG @▽ Sector 289 @△ Sector 026 @▥ In Prison)`)
-            .setFooter('NOVEMBER 13, 2020');
+            .setTitle('**Server Update 2.3.2**')
+            .setDescription(`= changed #*futurebot-testing* to <#715969770310205613>
+            \n+ added <#782675412986626058> `)
+            .setFooter('DECEMBER 5, 2020');
 
         message.channel.send(update1Embed);
     },
