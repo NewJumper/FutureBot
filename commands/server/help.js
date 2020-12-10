@@ -19,23 +19,32 @@ module.exports = {
             .setTitle('**FutureBot**')
             .setDescription(`${package.description}`);
     
-            message.channel.send(help1Embed);
+            // message.channel.send(help1Embed);
 
             const help2Embed = new Discord.MessageEmbed()
                 .setColor('#1b70bf')
                 .setTitle('All Available Commands:')
-                .setDescription(`**ADMINS (<@&631326468634443778>)**
-                \`\`\`futurebot-updates | headquarters | updates\`\`\`
-                **MODERATORS (<@&631325955817996288>)**
+                .setDescription(`**ADMINS** - <@&631326468634443778>
+                Economy:
+                \`\`\`add-balance\`\`\`
+                Server:
+                \`\`\`futurebot-updates | roles | rules | server-updates\`\`\`
+                **MODERATORS** - <@&631325955817996288>
+                Moderation:
                 \`\`\`ban | delete | kick | mute | tempmute | unmute\`\`\`
-                **ALL MEMBERS (<@&631324009874718736>)**
-                \`\`\`help | add | divide | multiply | random | subtract | server\`\`\``)
+                **ALL MEMBERS** - <@&631324009874718736>
+                Economy:
+                \`\`\`balance | pay\`\`\`
+                Math:
+                \`\`\`add | divide | multiply | random | subtract\`\`\`
+                Server:
+                \`\`\`bug | help | server\`\`\``)
                 .addFields(
                     { name: 'Prefix', value: `\`${config.prefix}\``, inline: true},
                     { name: 'Version', value: `\`${package.version}\``, inline: true},
                     { name: 'Creator', value: `\`${package.author}\``},
                 )
-                .setFooter('Use [-help <command>] for more info of a specific command.') //change this!!!!
+                .setFooter('Use [-help <command>] for more info of a specific command.')
 
             message.channel.send(help2Embed);
         }

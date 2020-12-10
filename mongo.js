@@ -3,8 +3,10 @@ const mongoPath = 'mongodb+srv://NewJumper:bNQoSD2Yddu4oXYL@futurebot.xpqey.mong
 
 module.exports = async () => {
     await mongoose.connect(mongoPath, {
+        keepAlive: true,
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        useFindAndModify: false,
     })
     return mongoose
 }

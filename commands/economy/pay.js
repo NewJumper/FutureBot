@@ -15,28 +15,32 @@ module.exports = {
         }
 
         const coinsToGive = arguments[1]
-        if (isNaN(coinsToGive)) {
-            message.channel.send('Provide a valid number of coins to give.')
-            return
+        if (coinsToGive < 0) {
+            message.reply('you can\'t rob anyone!!! yet...')
+        } else {
+            if (isNaN(coinsToGive)) {
+                message.channel.send('Provide a valid number of coins to give.')
+                return
+            }
+
+            const coinsOwned = await economy.getCoins(guild.id, member.id)
+            if (coinsOwned < coinsToGive) {
+                message.channel.send(`You do not have ${coinsToGive} coins.`)
+                return
+            }
+
+            const remainingCoins = await economy.addCoins(
+                guild.id,
+                member.id,
+                coinsToGive * -1
+            )
+            const newBalance = await economy.addCoins(
+                guild.id,
+                target.id,
+                coinsToGive
+            )
+
+            message.reply(`you have given <@${target.id}> ${coinsToGive} coins. They now have ${newBalance} coins and you have ${remainingCoins} coins.`)
         }
-
-        const coinsOwned = await economy.getCoins(guild.id, member.id)
-        if (coinsOwned < coinsToGive) {
-            message.channel.send(`You do not have ${coinsToGive} coins.`)
-            return
-        }
-
-        const remainingCoins = await economy.addCoins(
-            guild.id,
-            member.id,
-            coinsToGive * -1
-        )
-        const newBalance = await economy.addCoins(
-            guild.id,
-            target.id,
-            coinsToGive
-        )
-
-        message.reply(`you have given <@${target.id}> ${coinsToGive} coins. They now have ${newBalance} coins and you have ${remainingCoins} coins.`)
     },
 }

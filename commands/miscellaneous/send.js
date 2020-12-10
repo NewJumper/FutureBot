@@ -1,13 +1,14 @@
-const Discord = require('discord.js');
-
 module.exports = {
-    commands: ['test'],
+    commands: ['send', 'say'],
     expectedArgs: '',
-    permissionError: 'You don\'t have permission to run this command',
+    permissionError: '',
     minArgs: 0,
     maxArgs: null,
-    description: 'Testing command',
+    description: 'That one secret command.',
     callback: (message, arguments, text) => {
+        message.channel.bulkDelete(1)
+        .catch(console.error);
+
         let args = arguments.slice(0).join(" ")
         if (!args) args = "_ _"
 

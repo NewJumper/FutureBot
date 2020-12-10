@@ -13,22 +13,18 @@ module.exports = {
 
         const update1Embed = new Discord.MessageEmbed()
             .setColor('#1b70bf')
-            .setTitle('**FutureBot Update 0.13.0**')
-            .setDescription(`= bug fixes (\`FB003\`, \`FB004\`)
-            = changed FutureBot's description to be more accurate
-            = changed FutureBot's status (switched back to \`.setActivity\` instead of \`.setStatus\`)
-            = split the **rules** and **roles** embeds to two seperate files for better file fetching: \`rules\` and \`roles\`
-            = renamed \`headquarters\` to \`rules\`
-            = updated \`-help\`; although, it still has some issues
-            = renamed \`updates\` to \`server-updates\`
-            = leveling system in progress
-            \n+ added economy commands such as \`-balance\` and \`-pay\`
-            + added a \`-bug\` command for anyone to use to report any issues with FutureBot
-            + added \`-roles\`
-            + added \`profile-schema\`
-            + added a connection to a remote MongoDB server
-            \n- terminated connection to MongoDB Compass`)
-            .setFooter('NOVEMBER 29, 2020');
+            .setTitle('**FutureBot Update 0.13.1**')
+            .setDescription(`= bug fixes (\`FB005\`)
+            = updated commands list and order for \`-help\` (\`-help <command>\` is currently disabled)
+            = renamed \`-add-balance\` to \`-change-balance\`
+            = \`warn\` functionalities are in progress
+            = updated Mongoose connections
+            \n+ added \`-ping\`
+            + added \`-warn\`
+            + added \`-list-warnings\`
+            + added \`-send\`
+            + added \`warnSchema\``)
+            .setFooter('DECEMBER 10, 2020');   //UPDATE THE DATE!!!!
 
         message.channel.send(update1Embed);
     },

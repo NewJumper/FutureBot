@@ -19,7 +19,7 @@ module.exports = {
 
         let role = message.guild.roles.cache.find(role => role.name === "▥ In Prison");
 
-        if (!role) return message.reply("Couldn't find the `muted` role.")
+        if (!role) return message.reply("couldn't find the `muted` role.")
 
         let time = arguments[1];
         if (!time) {
