@@ -8,10 +8,11 @@ module.exports = {
     maxArgs: null,
     description: 'Testing command',
     callback: (message, arguments, text) => {
-        let args = arguments.slice(0).join(" ")
-        if (!args) args = "_ _"
-
-        message.channel.send(args)
+        if (arguments[0] < 0) {
+            message.channel.send('positive')
+        } else if (arguments[0] >= 0) {
+            messae.channel.send('negative')
+        }
     },
     permissions: ['ADMINISTRATOR'],
     requiredRoles: [],
