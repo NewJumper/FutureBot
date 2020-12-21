@@ -1,9 +1,7 @@
-const Discord = require('discord.js');
-
 module.exports = {
     commands: ['accept'],
     expectedArgs: '',
-    permissionError: 'You don\'t have permission to run this command',
+    permissionError: '',
     minArgs: 0,
     maxArgs: 0,
     callback: (message, arguments, text) => {

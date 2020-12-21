@@ -1,7 +1,7 @@
 module.exports = {
     commands: ['subtract', 'subtraction', 'sub'],
-    expectedArgs: '<num1> <num2>',
-    permissionError: 'You don\'t have permission to run this command',
+    expectedArgs: '*`x  y`*',
+    permissionError: '',
     minArgs: 2,
     maxArgs: 2,
     description: 'Subtracts two numbers.',

@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     commands: ['ping', 'latency'],
-    expectedArgs: '',
+    expectedArgs: 'by itself',
     permissionError: '',
     minArgs: 0,
     maxArgs: 0,
@@ -19,8 +19,8 @@ module.exports = {
                 .setColor('GREEN')
                 .setTitle(`Bot Latency: ${ping}ms\nAPI Latency: ${client.ws.ping}ms`)
 
-            // resultMessage.delete();
-            if (ping >= '150') {
+            resultMessage.delete();
+            if (ping >= '500') {
                 message.channel.send(ping1Embed)
             } else {
                 message.channel.send(ping2Embed)

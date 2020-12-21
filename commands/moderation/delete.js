@@ -1,10 +1,10 @@
 module.exports = {
     commands: ['delete', 'del'],
-    expectedArgs: '<num1>',
-    permissionError: 'You don\'t have permission to run this command',
+    expectedArgs: '*`x`*',
+    permissionError: '',
     minArgs: 1,
     maxArgs: 1,
-    description: 'Deletes up to 99 recent messages in the used channel.',
+    description: 'Deletes up to 99 recent messages in the channel where the command is used.',
     callback: (message, arguments, text) => {
         message.channel.bulkDelete(1)
         .catch(console.error);

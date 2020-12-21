@@ -3,11 +3,11 @@ const Discord = require('discord.js');
 
 module.exports = {
     commands: ['rules'],
-    expectedArgs: '',
-    permissionError: 'You don\'t have permission to run this command',
+    expectedArgs: 'by itself',
+    permissionError: '',
     minArgs: 0,
     maxArgs: 0,
-    description: 'Provides information on the rules and roles of the server.',
+    description: 'Provides the rules of the server.',
     callback: (message, arguments, text) => {
         const { member, mentions } = message
 

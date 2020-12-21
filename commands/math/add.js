@@ -1,10 +1,10 @@
 module.exports = {
     commands: ['add', 'addition', 'sum'],
-    expectedArgs: '<num1> <num2>',
-    permissionError: 'You don\'t have permission to run this command',
+    expectedArgs: '*`x  y`*',
+    permissionError: '',
     minArgs: 2,
     maxArgs: 2,
-    description: 'Adds two numbers',
+    description: 'Adds two numbers.',
     callback: (message, arguments, text) => {
         const num1 = +arguments[0]
         const num2 = +arguments[1]

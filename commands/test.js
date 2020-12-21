@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
     commands: ['test'],
     expectedArgs: '',
-    permissionError: 'You don\'t have permission to run this command',
+    permissionError: '',
     minArgs: 0,
     maxArgs: null,
     description: 'Testing command',

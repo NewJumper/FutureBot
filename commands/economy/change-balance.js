@@ -2,11 +2,11 @@ const economy = require('../../economy')
 
 module.exports = {
     commands: ['change-balance', 'change-bal', 'changebal', 'chg-bal', 'chgbal'],
-    expectedArgs: '',
+    expectedArgs: '*`@user <amount>`*',
     minArgs: 2,
     maxArgs: 2,
     permissions: 'ADMINISTRATOR',
-    description: 'Gives and takes coins from specified users.',
+    description: 'Give or take coins away from specified users.',
     callback: async (message, arguments) => {
         const mention = message.mentions.users.first()
 

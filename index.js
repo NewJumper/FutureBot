@@ -1,27 +1,18 @@
 const Discord = require('discord.js')
 const client = new Discord.Client()
-const mongoose = require('mongoose')
 
 const config = require('./config.json')
-const mongo = require('./mongo')
 const loadCommands = require('./commands/load-commands')
+const mongo = require('./mongo')
+const levels = require('./levels')
 
 client.once('ready', async () => {
 	console.log('[+] Online')
-	client.user.setActivity(`in v0.13.0`)
+	client.user.setActivity(`in v0.15.0`)
 
-	const connectToMongoDB = async () => {
-		await mongo().then((mongoose) => {
-			try {
-				console.log('[+] Connected to MongoDB')
-			} finally {
-				mongoose.connection.close()
-			}
-		})
-	}
-	
-	connectToMongoDB()
+	await mongo()
 
+	levels(client)
 	loadCommands(client)
 })
 

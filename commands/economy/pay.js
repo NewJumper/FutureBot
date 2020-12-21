@@ -2,7 +2,7 @@ const economy = require("../../economy")
 
 module.exports = {
     commands: ['pay', 'give'],
-    expectedArgs: '',
+    expectedArgs: '*`@user <amount>`*',
     minArgs: 2,
     maxArgs: 2,
     callback: async (message, arguments, text) => {

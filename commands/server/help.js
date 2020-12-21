@@ -1,11 +1,12 @@
 const Discord = require('discord.js')
-const client = new Discord.Client()
 const package = require('../../package.json')
 const config = require('../../config.json')
 
+const loadCommands = require('../load-commands')
+
 module.exports = {
     commands: ['help', 'commands'],
-    expectedArgs: '',
+    expectedArgs: '*`<command>`* or by itself',
     minArgs: 0,
     maxArgs: null,
     description: 'A list of all the commands of FutureBot and more.',
@@ -15,9 +16,9 @@ module.exports = {
     
         if(!helpArgs[0]) {
             const help1Embed = new Discord.MessageEmbed()
-            .setColor('#1b70bf')
-            .setTitle('**FutureBot**')
-            .setDescription(`${package.description}`);
+                .setColor('#1b70bf')
+                .setTitle('**FutureBot**')
+                .setDescription(`${package.description}`);
     
             // message.channel.send(help1Embed);
 
@@ -26,8 +27,8 @@ module.exports = {
                 .setTitle('All Available Commands:')
                 .setDescription(`**ADMINS** - <@&631326468634443778>
                 Economy:
-                \`\`\`add-balance\`\`\`
-                Server:
+                \`\`\`change-balance\`\`\`
+                Server Info:
                 \`\`\`futurebot-updates | roles | rules | server-updates\`\`\`
                 **MODERATORS** - <@&631325955817996288>
                 Moderation:
@@ -36,9 +37,11 @@ module.exports = {
                 Economy:
                 \`\`\`balance | pay\`\`\`
                 Math:
-                \`\`\`add | divide | multiply | random | subtract\`\`\`
+                \`\`\`add | cube-root | divide | multiply | pi | power | random | square-root | subtract\`\`\`
                 Server:
-                \`\`\`bug | help | server\`\`\``)
+                \`\`\`help | server\`\`\`
+                Miscellaneous:
+                \`\`\`bug | ping\`\`\``)
                 .addFields(
                     { name: 'Prefix', value: `\`${config.prefix}\``, inline: true},
                     { name: 'Version', value: `\`${package.version}\``, inline: true},
@@ -48,25 +51,24 @@ module.exports = {
 
             message.channel.send(help2Embed);
         }
-    
-        // if(helpArgs[0]) {
-        //     let command = helpArgs[0];
 
-        //     if(client.commands.has(command)) {
-                
-        //         command = client.commands.get(command);
-        //         const help3Embed = new Discord.MessageEmbed()
-        //             .setColor('#1b70bf')
-        //             .setTitle(`${command.commands}`)
-        //             .setDescription(`
-        //             - **Description** ${command.description || "No \`description\`"}
-        //             - **Expected Syntax** ${command.expectedArgs || "No \`expectedArgs\`"}
-        //             - **Minimum Arguments** ${command.minArgs || "No \`minArgs\`"}
-        //             - **Maximum Arguments** ${command.maxArgs || "No \`maxArgs\`"}`)
-    
-        //         message.channel.send(help3Embed);
-        //     }
-        // }
+        const commands = loadCommands()
+        for (const command of commands) {
+            const mainCommand =
+                typeof command.commands === 'string'
+                    ? command.commands
+                    : command.commands[0]
+
+            if (helpArgs[0] === mainCommand) {
+                const help3Embed = new Discord.MessageEmbed()
+                    .setColor('#1b70bf')
+                    .setTitle(`${config.prefix}${mainCommand}`)
+                    .setDescription(`**Description**: ${command.description || 'No \`description\`'}
+                    **Proper Usage**: ${command.expectedArgs || '*No \`expectedArgs\`*'}`)
+
+                message.channel.send(help3Embed);
+            }
+        }
     },
     permissions: [],
     requiredRoles: [],

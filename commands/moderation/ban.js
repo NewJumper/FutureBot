@@ -2,8 +2,8 @@ const Discord = require('discord.js')
 
 module.exports = {
     commands: ['ban'],
-    expectedArgs: '',
-    permissionError: 'You don\'t have permission to run this command',
+    expectedArgs: '*`@user <reason>`*',
+    permissionError: '',
     minArgs: 1,
     maxArgs: null,
     description: 'Bans a specified member.',

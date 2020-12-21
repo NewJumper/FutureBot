@@ -3,11 +3,11 @@ const ms = require('ms');
 
 module.exports = {
     commands: ['tempmute', 'temp'],
-    expectedArgs: '',
-    permissionError: 'You don\'t have permission to run this command',
+    expectedArgs: '*`@user <time> <reason>`*',
+    permissionError: '',
     minArgs: 1,
     maxArgs: null,
-    description: 'Tempmutes a specified user.',
+    description: 'Tempmutes a specified user for a specific time (s = second, m = minute, h = hour, no prefix = ms / millisecond).',
     callback: (message, arguments, text) => {
         const { member, mentions } = message
 

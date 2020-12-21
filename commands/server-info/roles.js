@@ -2,11 +2,11 @@ const Discord = require('discord.js')
 
 module.exports = {
     commands: ['roles'],
-    expectedArgs: '',
-    permissionError: 'You don\'t have permission to run this command',
+    expectedArgs: 'by itself',
+    permissionError: '',
     minArgs: 0,
     maxArgs: 0,
-    description: 'Adds two numbers',
+    description: 'Server roles and their info.',
     callback: (message, arguments, text) => {
         const role1Embed = new Discord.MessageEmbed()
             .setColor('#1b70bf')
