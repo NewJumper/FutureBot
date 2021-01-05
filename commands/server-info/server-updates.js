@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     commands: ['server-updates', 'updates'],
-    expectedArgs: 'by itself',
+    expectedArgs: '`*',
     permissionError: '',
     minArgs: 0,
     maxArgs: 0,

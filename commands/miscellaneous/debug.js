@@ -6,7 +6,7 @@ const package = require('../../package.json')
 
 module.exports = {
     commands: ['debug', 'bot-stats'],
-    expectedArgs: 'by itself',
+    expectedArgs: '`*',
     permissionError: '',
     minArgs: 0,
     maxArgs: 0,

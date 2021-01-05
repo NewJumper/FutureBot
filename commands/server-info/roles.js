@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 
 module.exports = {
     commands: ['roles'],
-    expectedArgs: 'by itself',
+    expectedArgs: '`*',
     permissionError: '',
     minArgs: 0,
     maxArgs: 0,

@@ -8,7 +8,7 @@ const levels = require('./levels')
 
 client.once('ready', async () => {
 	console.log('[+] Online')
-	client.user.setActivity(`in v0.15.1`)
+	client.user.setActivity(`in v0.15.1.1`)
 
 	await mongo()
 

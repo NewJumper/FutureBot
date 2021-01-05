@@ -1,6 +1,6 @@
 {
   "name": "futurebot",
-  "version": "0.15.1",
+  "version": "0.15.1.1",
   "description": "A Discord bot made by NewJumper that helps with moderation and has additional features such as a leveling system, an economy, and it can perform basic calculations.",
   "main": "index.js",
   "scripts": {
