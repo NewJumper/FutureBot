@@ -1,6 +1,6 @@
 module.exports = {
     commands: ['random', 'rng'],
-    expectedArgs: '*`x`*',
+    expectedArgs: 'x`*',
     permissionError: '',
     minArgs: 1,
     maxArgs: 1,

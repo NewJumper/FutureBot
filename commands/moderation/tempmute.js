@@ -3,7 +3,7 @@ const ms = require('ms');
 
 module.exports = {
     commands: ['tempmute', 'temp'],
-    expectedArgs: '*`@user <time> <reason>`*',
+    expectedArgs: '@user <time> <reason>`*',
     permissionError: '',
     minArgs: 1,
     maxArgs: null,

@@ -1,6 +1,6 @@
 module.exports = {
     commands: ['power', 'pwr', 'pow', 'exponent', 'exponents', 'expo'],
-    expectedArgs: '*`x  y`*',
+    expectedArgs: 'x  y`*',
     permissionError: '',
     minArgs: 2,
     maxArgs: 2,

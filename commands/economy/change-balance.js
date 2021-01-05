@@ -2,7 +2,7 @@ const economy = require('../../economy')
 
 module.exports = {
     commands: ['change-balance', 'change-bal', 'changebal', 'chg-bal', 'chgbal'],
-    expectedArgs: '*`@user <amount>`*',
+    expectedArgs: '@user <amount>`*',
     minArgs: 2,
     maxArgs: 2,
     permissions: 'ADMINISTRATOR',

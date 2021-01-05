@@ -1,6 +1,6 @@
 module.exports = {
     commands: ['pi'],
-    expectedArgs: '*`x`* or by itself',
+    expectedArgs: 'x`* or by itself',
     permissionError: '',
     minArgs: 0,
     maxArgs: 1,

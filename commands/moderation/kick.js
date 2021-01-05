@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     commands: ['kick'],
-    expectedArgs: '*`@user`*',
+    expectedArgs: '@user`*',
     permissionError: '',
     minArgs: 1,
     maxArgs: null,

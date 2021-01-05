@@ -1,6 +1,6 @@
 module.exports = {
     commands: ['multiply', 'multiplication', 'multi'],
-    expectedArgs: '*`x  y`*',
+    expectedArgs: 'x  y`*',
     permissionError: '',
     minArgs: 2,
     maxArgs: 2,

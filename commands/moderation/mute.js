@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     commands: ['mute'],
-    expectedArgs: '*`@user <reason>`*',
+    expectedArgs: '@user <reason>`*',
     permissionError: '',
     minArgs: 1,
     maxArgs: null,

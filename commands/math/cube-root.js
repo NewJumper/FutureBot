@@ -1,6 +1,6 @@
 module.exports = {
     commands: ['cube-root', 'cube', 'cbrt'],
-    expectedArgs: '*`x`*',
+    expectedArgs: 'x`*',
     permissionError: '',
     minArgs: 1,
     maxArgs: 1,

@@ -6,25 +6,15 @@ const loadCommands = require('../load-commands')
 
 module.exports = {
     commands: ['help', 'commands'],
-    expectedArgs: '*`<command>`* or by itself',
+    expectedArgs: '<command>`* or by itself',
     minArgs: 0,
     maxArgs: null,
     description: 'A list of all the commands of FutureBot and more.',
-    callback: (message, arguments, text) => {
-        let helpArray = message.content.split(" ");
-        let helpArgs = helpArray.slice(1);
-    
-        if(!helpArgs[0]) {
+    callback: (message, arguments, text, client) => {
+        if(!arguments[0]) {
             const help1Embed = new Discord.MessageEmbed()
                 .setColor('#1b70bf')
-                .setTitle('**FutureBot**')
-                .setDescription(`${package.description}`);
-    
-            // message.channel.send(help1Embed);
-
-            const help2Embed = new Discord.MessageEmbed()
-                .setColor('#1b70bf')
-                .setTitle('All Available Commands:')
+                .setAuthor('FutureBot Help Center', client.user.displayAvatarURL())
                 .setDescription(`**ADMINS** - <@&631326468634443778>
                 Economy:
                 \`\`\`change-balance\`\`\`
@@ -39,17 +29,18 @@ module.exports = {
                 Math:
                 \`\`\`add | cube-root | divide | multiply | pi | power | random | square-root | subtract\`\`\`
                 Server:
-                \`\`\`help | server\`\`\`
+                \`\`\`help\`\`\`
                 Miscellaneous:
-                \`\`\`bug | ping\`\`\``)
+                \`\`\`bug | debug | ping\`\`\``)
                 .addFields(
-                    { name: 'Prefix', value: `\`${config.prefix}\``, inline: true},
+                    { name: '\u200B', value: '\u200B' },
+                    { name: 'Creator', value: `\`${package.author}\``, inline: true},
                     { name: 'Version', value: `\`${package.version}\``, inline: true},
-                    { name: 'Creator', value: `\`${package.author}\``},
+                    { name: 'Prefix', value: `\`${config.prefix}\``, inline: true},
                 )
                 .setFooter('Use [-help <command>] for more info of a specific command.')
 
-            message.channel.send(help2Embed);
+            message.channel.send(help1Embed);
         }
 
         const commands = loadCommands()
@@ -59,14 +50,14 @@ module.exports = {
                     ? command.commands
                     : command.commands[0]
 
-            if (helpArgs[0] === mainCommand) {
-                const help3Embed = new Discord.MessageEmbed()
-                    .setColor('#1b70bf')
+            if (arguments[0] === mainCommand) {
+                const help2Embed = new Discord.MessageEmbed()
+                    .setColor('RANDOM')
                     .setTitle(`${config.prefix}${mainCommand}`)
                     .setDescription(`**Description**: ${command.description || 'No \`description\`'}
-                    **Proper Usage**: ${command.expectedArgs || '*No \`expectedArgs\`*'}`)
+                    **Proper Usage**: *\`${config.prefix}${mainCommand} ${command.expectedArgs || '*No \`expectedArgs\`*'}`)
 
-                message.channel.send(help3Embed);
+                message.channel.send(help2Embed);
             }
         }
     },

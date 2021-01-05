@@ -13,26 +13,22 @@ module.exports = {
 
         const update1Embed = new Discord.MessageEmbed()
             .setColor('#1b70bf')
-            .setTitle('**FutureBot Update 0.13.1**')
-            .setDescription(`= bug fixes (\`FB006\`)
-            = updated \`-ping\`
-            = updated \`-help\` imports
-            = updated \`profileSchema\`
-            = updated \`.gitignore\`
-            = organized command info (\`expectedArgs\`, \`description\`, and \`permissionError\`)
-            = updated Mongo connection (uses only one connection)
-            = updated the following \`dependencies\`: \`mongoose\`
-            \n+ added \`-cube-root\`
-            + added \`-pi\`
-            + added \`-power\`
-            + added \`-square-root\`
-            + added leveling functionality (cannot currently check what \`level\` you're on and how much \`xp\` you have)
-            + added a new folder for expanded server commands
-            + ability to use \`-help <command>\` works
-            \n- removed warn functionality
-            - deleted \`warnSchema\`
-            - uninstalled the following \`dependencies\`: \`discord-xp\``)
-            .setFooter('DECEMBER 21, 2020');   //UPDATE THE DATE!!!!
+            .setTitle('**FutureBot Update 0.15.1**')
+            .setDescription(`= bug fixes (\`FB008\`)
+            = updated FutureBot's description
+            = updated \`level.js\` to ignore bots when giving \`xp\`
+            = simplified \`help.js\` so it's less complex (by 9 lines of code! yay!)
+            = updated the looks of \`-help\` and \`-help <command>\`
+            = renamed **Proper Usage** to **Usage** when using \`-help <command>\`
+            = updated the gaps between each rule/role section in <#635515926623551488>
+            \n+ added \`-debug\`
+            + added the prefix with the main command within the **Usage** section when using \`-help <command>\`
+            + added the following \`dependencies\`: \`os\`
+            \n- removed \`-server\`
+            - removed \`permissionError\`
+            - disabled ability to earn a level-up role (i.e <@&789691739027668992>, <#&766064174337490974>, etc.) due to a bug
+            - removed the following \`dependencies\`: \`jsonfile\``)
+            .setFooter('JANUARY 5, 2021');   //UPDATE THE DATE!!!
 
         message.channel.send(update1Embed);
     },

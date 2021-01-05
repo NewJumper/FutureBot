@@ -1,6 +1,6 @@
 module.exports = {
     commands: ['square-root', 'square', 'sqrt'],
-    expectedArgs: '*`x`*',
+    expectedArgs: 'x`*',
     permissionError: '',
     minArgs: 1,
     maxArgs: 1,
