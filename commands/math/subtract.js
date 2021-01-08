@@ -1,16 +1,25 @@
-module.exports = {
-    commands: ['subtract', 'subtraction', 'sub'],
-    expectedArgs: 'x  y`*',
-    permissionError: '',
-    minArgs: 2,
-    maxArgs: 2,
-    description: 'Subtracts two numbers.',
-    callback: (message, arguments, text) => {
-        const num1 = +arguments[0]
-        const num2 = +arguments[1]
+const Commando = require('discord.js-commando')
 
-        message.channel.send(`${num1 - num2}`)
-    },
-    permissions: [],
-    requiredRoles: [],
+module.exports = class SubtractCommand extends Commando.Command {
+    constructor(client) {
+        super(client, {
+            name: 'subtract',
+            aliases: ['sub'],
+            group: 'math',
+            memberName: 'subtract',
+            description: 'Subtracts numbers.',
+            argsType: 'multiple'
+        })
+    }
+
+    async run(message, args) {
+        const num = parseInt(args[0])
+        let diff = parseInt(args[0])
+
+        for (const arg of args) {
+            diff -= parseInt(arg)
+        }
+
+        message.channel.send(`${diff + num}`)
+    }
 }

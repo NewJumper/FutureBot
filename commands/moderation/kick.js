@@ -1,21 +1,32 @@
-const Discord = require('discord.js');
+const Commando = require('discord.js-commando')
 
-module.exports = {
-    commands: ['kick'],
-    expectedArgs: '@user`*',
-    permissionError: '',
-    minArgs: 1,
-    maxArgs: null,
-    description: 'Kicks a specified user.',
-    callback: (message, arguments, text) => {
-        const { member, mentions } = message
+module.exports = class KickCommand extends Commando.Command {
+    constructor(client) {
+        super(client, {
+            name: 'kick',
+            group: 'moderation',
+            memberName: 'kick',
+            description: 'Kicks a specified user.',
+            clientPermissions: ['KICK_MEMBERS'],
+            userPermissions: ['KICK_MEMBERS']
+        })
+    }
 
-        const target = mentions.users.first()
-        if (target) {
-            const targetMember = message.guild.members.cache.get(target.id)
-            targetMember.kick()
+    async run(message) {
+        const target = message.mentions.users.first()
+        if(!target) {
+            message.reply("specify a user to kick.")
+            return
         }
-    },
-    permissions: ['KICK_MEMBERS'],
-    requiredRoles: [],
+
+        const { guild } = message
+
+        const member = guild.members.cache.get(target.id)
+        if (member.kickable) {
+            member.kick()
+            message.channel.send(`<@${target.id}> has been kicked!`)
+        } else {
+            message.channel.send(`Unable to kick <@${target.id}>`)
+        }
+    }
 }

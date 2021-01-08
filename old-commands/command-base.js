@@ -62,7 +62,7 @@ module.exports = (client, commandOptions) => {
         commands = [commands]
     }
 
-    //console.log(`Registering command "${commands[0]}"`)
+    // console.log(`Registering command "${commands[0]}"`)
 
     if (permissions.length) {
         if (typeof permissions === 'string') {
@@ -98,7 +98,7 @@ module.exports = (client, commandOptions) => {
 
                 arguments.shift()
                 if (arguments.length < minArgs || (maxArgs !== null && arguments.length > maxArgs)) {
-                    message.reply(`incorrect syntax! Use: \`${prefix}${alias} ${expectedArgs}\``)
+                    // message.reply(`incorrect syntax! Use: \`${prefix}${alias} ${expectedArgs}\``)
                     return
                 }
 

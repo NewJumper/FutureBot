@@ -1,13 +1,17 @@
+const Commando = require('discord.js-commando')
 const Discord = require('discord.js');
 
-module.exports = {
-    commands: ['bug', 'issue'],
-    expectedArgs: '`*',
-    permissionError: '',
-    minArgs: 0,
-    maxArgs: 0,
-    description: 'Use to report any bugs or issues with FutureBot.',
-    callback: (message, arguments, text) => {
+module.exports = class BugCommand extends Commando.Command {
+    constructor(client) {
+        super(client, {
+            name: 'bug',
+            group: 'miscellaneous',
+            memberName: 'bug',
+            description: 'Report any bugs or issues with FutureBot.'
+        })
+    }
+
+    async run(message) {
         message.channel.bulkDelete(1)
         .catch(console.error);
 
@@ -15,9 +19,7 @@ module.exports = {
             .setColor('RED')
             .setTitle('Report a Bug')
             .setURL('https://forms.gle/75qmDbambLWuM4By9')
-
+        
         message.channel.send(bug1Embed)
-    },
-    permissions: [],
-    requiredRoles: [],
+    }
 }

@@ -1,19 +1,31 @@
+const Commando = require('discord.js-commando')
+const Discord = require('discord.js')
+
 const economy = require('../../economy')
 
-module.exports = {
-    commands: ['balance', 'bal'],
-    expectedArgs: '@user`* or by itself',
-    maxArgs: 1,
-    description: 'View your\'s or a specified user\'s balance.',
-    callback: async (message, arguments, text) => {
+module.exports = class BalanceCommand extends Commando.Command {
+    constructor(client) {
+        super(client, {
+            name: 'balance',
+            aliases: ['bal'],
+            group: 'economy',
+            memberName: 'balance',
+            description: 'View your\'s or a specified user\'s coin balance.'
+        })
+    }
+
+    async run(message) {
         const target = message.mentions.users.first() || message.author
-        const targetId = target.id
 
         const guildId = message.guild.id
         const userId = target.id
 
         const coins = await economy.getCoins(guildId, userId)
 
-        message.channel.send(`<@${userId}> has ${coins} coins!`)
-    },
+        const balance1Embed = new Discord.MessageEmbed()
+            .setColor('GOLD')
+            .setDescription(`<@${userId}> has ${coins} coins!`)
+
+        message.channel.send(balance1Embed)
+    }
 }

@@ -1,16 +1,23 @@
-module.exports = {
-    commands: ['add', 'addition', 'sum'],
-    expectedArgs: 'x  y`*',
-    permissionError: '',
-    minArgs: 2,
-    maxArgs: 2,
-    description: 'Adds two numbers.',
-    callback: (message, arguments, text) => {
-        const num1 = +arguments[0]
-        const num2 = +arguments[1]
+const Commando = require('discord.js-commando')
 
-        message.channel.send(`${num1 + num2}`)
-    },
-    permissions: [],
-    requiredRoles: [],
+module.exports = class AddCommand extends Commando.Command {
+    constructor(client) {
+        super(client, {
+            name: 'add',
+            group: 'math',
+            memberName: 'add',
+            description: 'Adds numbers together.',
+            argsType: 'multiple'
+        })
+    }
+
+    async run(message, args) {
+        let sum = 0
+
+        for (const arg of args) {
+            sum += parseInt(arg)
+        }
+
+        message.channel.send(sum)
+    }
 }
