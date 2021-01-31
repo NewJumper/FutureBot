@@ -8,7 +8,8 @@ module.exports = class KickCommand extends Commando.Command {
             memberName: 'kick',
             description: 'Kicks a specified user.',
             clientPermissions: ['KICK_MEMBERS'],
-            userPermissions: ['KICK_MEMBERS']
+            userPermissions: ['KICK_MEMBERS'],
+            guildOnly: true
         })
     }
 
@@ -19,9 +20,7 @@ module.exports = class KickCommand extends Commando.Command {
             return
         }
 
-        const { guild } = message
-
-        const member = guild.members.cache.get(target.id)
+        const member = message.guild.members.cache.get(target.id)
         if (member.kickable) {
             member.kick()
             message.channel.send(`<@${target.id}> has been kicked!`)

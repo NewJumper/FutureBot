@@ -1,7 +1,7 @@
 {
   "name": "futurebot",
-  "version": "0.16.0",
-  "description": "A Discord bot made by NewJumper that helps with moderation and has additional features such as a leveling system, an economy, and it can perform basic calculations.",
+  "version": "1.0.1",
+  "description": "A Discord bot made by NewJumper with moderation and mathematical features along with an economic structure and a ranking system.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,12 +10,12 @@
   "author": "NewJumper",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.2.0",
+    "discord.js": "^12.5.1",
     "discord.js-commando": "git+https://github.com/discordjs/Commando.git",
-    "mongoose": "^5.11.8",
-    "ms": "^2.1.2",
+    "discord.js-menu": "^2.3.1",
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.11.11",
     "node-fetch": "^2.6.1",
-    "os": "^0.1.1",
-    "random": "^2.2.0"
+    "os": "^0.1.1"
   }
 }

@@ -1,2 +1,7 @@
+# utility
 node_modules
-config.json
+.env
+
+# commands
+test.js
+test2.js
