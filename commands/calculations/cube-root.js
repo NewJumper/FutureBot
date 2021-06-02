@@ -5,7 +5,7 @@ module.exports = class CubeRootCommand extends Commando.Command {
         super(client, {
             name: 'cube-root',
             aliases: ['cbrt'],
-            group: 'math',
+            group: 'calculation',
             memberName: 'cube-root',
             description: 'Calculate cube roots.',
             argsType: 'multiple'
@@ -13,8 +13,8 @@ module.exports = class CubeRootCommand extends Commando.Command {
     }
 
     async run(message, args) {
-        const num = parseInt(args[0])
+        const number = parseInt(args[0])
 
-        message.channel.send(Math.abs(Math.cbrt(num)))
+        message.channel.send(Math.abs(Math.cbrt(number)))
     }
 }

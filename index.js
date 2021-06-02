@@ -11,15 +11,15 @@ const client = new Commando.CommandoClient({
 
 client.once('ready', async () => {
 	console.log('[+] Online')
-	client.user.setActivity(`in the Commando Framework`)
+	client.user.setActivity(`in version 1.1.0`)
 
 	await mongo().then(console.log('[+] Mongo Link'))
 
 	client.registry
 	.registerDefaultTypes()
 	.registerGroups([
+		['calculation', 'Calculation Commands'],
 		['economy', 'Economy Commands'],
-		['math', 'Math Commands'],
 		['miscellaneous', 'Miscellaneous Commands'],
 		['moderation', 'Moderation Commands'],
 		['server', 'Server Commands']

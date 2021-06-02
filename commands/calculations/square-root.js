@@ -5,7 +5,7 @@ module.exports = class SquareRootCommand extends Commando.Command {
         super(client, {
             name: 'square-root',
             aliases: ['sqrt'],
-            group: 'math',
+            group: 'calculation',
             memberName: 'square-root',
             description: 'Calculate square roots.',
             argsType: 'multiple'
@@ -13,8 +13,8 @@ module.exports = class SquareRootCommand extends Commando.Command {
     }
 
     async run(message, args) {
-        const num = parseInt(args[0])
+        const number = parseInt(args[0])
 
-        message.channel.send(Math.abs(Math.sqrt(num)))
+        message.channel.send(Math.abs(Math.sqrt(number)))
     }
 }

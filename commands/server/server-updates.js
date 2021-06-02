@@ -19,11 +19,11 @@ module.exports = class ServerUpdatesCommand extends Commando.Command {
 
         const update1Embed = new Discord.MessageEmbed()
             .setColor('#1b70bf')
-            .setTitle('**Server Update 2.5.2**')
-            .setDescription(`= synced all channels to parent permissions
-            \n+ added a new and updated mute role: <@&800130999152410674>
-            + added parent permissions to all Categories`)
-            .setFooter('JANUARY 27, 2021')   //UPDATE THE DATE!!!!
+            .setTitle('**Server Update 2.6.1**')
+            .setDescription(`= updated server rules and roles
+            \n+ added <#831283256410112040>
+            \n- removed @*emoji-requests*`)
+            .setFooter('April 3, 2021')   //UPDATE THE DATE!!!!
 
         message.channel.send(update1Embed)
     }

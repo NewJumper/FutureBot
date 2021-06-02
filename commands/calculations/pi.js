@@ -4,7 +4,7 @@ module.exports = class PiCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'pi',
-            group: 'math',
+            group: 'calculation',
             memberName: 'pi',
             description: 'Value of Pi or Pi multiplied by a specified number.',
             argsType: 'multiple'
@@ -12,12 +12,12 @@ module.exports = class PiCommand extends Commando.Command {
     }
 
     async run(message, args) {
-        const num = parseInt(args[0])
+        const number = parseInt(args[0])
 
         if (!args[0]) {
             message.channel.send(Math.PI)
         } else {
-            message.channel.send(Math.PI * num)
+            message.channel.send(Math.PI * number)
         }
     }
 }

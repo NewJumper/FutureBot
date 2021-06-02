@@ -5,7 +5,7 @@ module.exports = class RandomCommand extends Commando.Command {
         super(client, {
             name: 'random',
             aliases: ['rng'],
-            group: 'math',
+            group: 'calculation',
             memberName: 'random',
             description: 'Generate a random number between 1 and a specified number.',
             argsType: 'multiple'
@@ -13,8 +13,8 @@ module.exports = class RandomCommand extends Commando.Command {
     }
 
     async run(message, args) {
-        const num = parseInt(args[0])
+        const number = parseInt(args[0])
 
-        message.channel.send(Math.round(Math.random() * num + 1))
+        message.channel.send(Math.round(Math.random() * number + 1))
     }
 }

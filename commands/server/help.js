@@ -10,7 +10,11 @@ module.exports = class HelpCommand extends Commando.Command {
             name: 'help',
             group: 'server',
             memberName: 'help',
-            description: 'A list of all the commands of FutureBot.'
+            description: 'A list of all the commands of FutureBot.',
+            throttling: {
+                usages: 1,
+                duration: 20
+            }
         })
     }
 
@@ -26,13 +30,13 @@ module.exports = class HelpCommand extends Commando.Command {
                     🔢 - Move to a specific page
                     ➡️ - Move to the next page
                     🛑 - Stops any receiving input (automatically timeouts in 3 mins)
-                    \n\n**Most commonly used commands**:
-                    \n***\`-balance\`***
-                    View your's or a specified user's coin balance.
-                    \n***\`-random\`***
-                    Generate a random number between 1 and the specified number.
-                    \n***\`-debug\`***
-                    View FutureBot's statistics and extra information.`)
+                    \n\n**Table of Contents**:
+                    \n2️⃣ - Administrator Commands
+                    \n3️⃣ - Moderator Commands
+                    \n4️⃣ - Calculation Commands
+                    \n5️⃣ - Calculation Commands cont.
+                    \n6️⃣ - Economy Commands
+                    \n7️⃣ - Utility Commands`)
                     .addFields(
                         { name: '\u200B', value: '\u200B' },
                         { name: 'Creator', value: `\`${mainpkg.author}\``, inline: true },
@@ -92,8 +96,8 @@ module.exports = class HelpCommand extends Commando.Command {
                     Deletes up to 99 recent messages within the channel.
                     \n***\`-kick\`***
                     Kicks a specified user.
-                    \n***\`-muted\`***
-                    View a user's mute information.
+                    \n***\`-mute\`***
+                    Mutes a specific user.
                     \n***\`-tempmute\`***
                     Temporarily mutes a specified user.
                     \n***\`-unmute\`***
@@ -114,48 +118,19 @@ module.exports = class HelpCommand extends Commando.Command {
             {
                 name: 'page4',
                 content: new MessageEmbed()
-                    .setColor('#d3e2f1')
-                    .setTitle('Economy Commands')
-                    .setDescription(`<@&631324009874718736> and up
-                    \n***\`-balance\`***
-                    View your's or a specified user's coin balance.
-                    \n***\`-economy-leaderboard\`***
-                    **upcoming**
-                    \n***\`-pay\`***
-                    Pay a user a certain amount of coins.
-                    \n***\`-payday\`***
-                    **upcoming**
-                    \n***\`-salary\`***
-                    **upcoming**`) // -payday, earn money based off of salary ~~~ -salary, view how much money you make with a certain time (claim money using -payday)
-                    .setFooter('Page 4', this.client.user.displayAvatarURL()),
-                reactions: {
-                    '⬅️': 'previous',
-                    '1️⃣': 'main',
-                    '2️⃣': 'page2',
-                    '3️⃣': 'page3',
-                    '5️⃣': 'page5',
-                    '6️⃣': 'page6',
-                    '7️⃣': 'page7',
-                    '➡️': 'next',
-                    '🛑': 'stop'
-                }
-            },
-            {
-                name: 'page5',
-                content: new MessageEmbed()
                     .setColor('#2588fc')
-                    .setTitle('Math Commands')
-                    .setDescription(`***\`-add\`***
-                    Adds numbers together.
-                    \n***\`-cube-root\`***
+                    .setTitle('Calculation Commands')
+                    .setDescription(`***\`-cube-root\`***
                     Calculate cube roots.
-                    \n***\`-divide\`***
-                    Divides numbers.
                     \n***\`-math\`***
                     Basic math calculations in one command: (\`+\`, \`-\`, \`*\`, \`/\`, and \`^\`).
-                    \n***\`-multiply\`***
-                    Multiplies numbers.`)
-                    .setFooter('Page 5', this.client.user.displayAvatarURL()),
+                    \n***\`-pi\`***
+                    Value of Pi or Pi multiplied by a specified number.
+                    \n***\`-random\`***
+                    Generate a random number between 1 and a specified number.
+                    \n***\`-square-root\`***
+                    Calculate square roots.`)
+                    .setFooter('Page 4', this.client.user.displayAvatarURL()),
                 reactions: {
                     '⬅️': 'previous',
                     '1️⃣': 'main',
@@ -171,26 +146,27 @@ module.exports = class HelpCommand extends Commando.Command {
             {
                 name: 'page6',
                 content: new MessageEmbed()
-                    .setColor('#b1ffb5')
-                    .setTitle('Math Commands cont.')
-                    .setDescription(`***\`-pi\`***
-                    Value of Pi or Pi multiplied by a specified number.
-                    \n***\`-power\`***
-                    Calculate basic exponents.
-                    \n***\`-random\`***
-                    Generate a random number between 1 and a specified number.
-                    \n***\`-square-root\`***
-                    Calculate square roots.
-                    \n***\`-subtract\`***
-                    Subtracts numbers.`)
+                    .setColor('#d3e2f1')
+                    .setTitle('Economy Commands')
+                    .setDescription(`<@&631324009874718736> and up
+                    \n***\`-balance\`***
+                    View your's or a specified user's coin balance.
+                    \n***\`-daily\`***
+                    Collect your daily rewards.
+                    \n***\`-economy-leaderboard\`***
+                    **upcoming**
+                    \n***\`-earnings\`***
+                    View how much money you make daily (when using \`-daily\`).
+                    \n***\`-pay\`***
+                    Pay a user a certain amount of coins.*`)
                     .setFooter('Page 6', this.client.user.displayAvatarURL()),
                 reactions: {
                     '⬅️': 'previous',
                     '1️⃣': 'main',
                     '2️⃣': 'page2',
                     '3️⃣': 'page3',
-                    '4️⃣': 'page4',
                     '5️⃣': 'page5',
+                    '6️⃣': 'page6',
                     '7️⃣': 'page7',
                     '➡️': 'next',
                     '🛑': 'stop'

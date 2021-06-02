@@ -1,13 +1,13 @@
 const Commando = require('discord.js-commando')
 const Discord = require('discord.js')
 
-module.exports = class UnmuteCommand extends Commando.Command {
+module.exports = class MuteCommand extends Commando.Command {
     constructor(client) {
         super(client, {
-            name: 'unmute',
+            name: 'mute',
             group: 'moderation',
-            memberName: 'unmute',
-            description: 'Unmutes a specified user.',
+            memberName: 'mute',
+            description: 'Mutes a specified user.',
             argsType: 'multiple',
             clientPermissions: ['MUTE_MEMBERS'],
             userPermissions: ['MUTE_MEMBERS'],
@@ -21,7 +21,7 @@ module.exports = class UnmuteCommand extends Commando.Command {
 
         const target = message.mentions.users.first()
         if (!target) {
-            message.reply('specify a user.')
+            message.reply('specify a user to mute.')
             return
         }
 
@@ -31,14 +31,18 @@ module.exports = class UnmuteCommand extends Commando.Command {
             return
         }
 
-        const unmute1Embed = new Discord.MessageEmbed()
-            .setColor('GREEN')
-            .setTitle('🔊 UNMUTED')
-            .setDescription(`**<@${target.id}> is now unmuted!**`)
+        let reason = args.slice(1).join(" ")
+        if (!reason) reason = 'unknown'
+
+        const mute1Embed = new Discord.MessageEmbed()
+            .setColor('RED')
+            .setTitle('🔇 MUTED')
+            .setDescription(`**<@${target.id}> was muted!**
+            \n**Reason**: ${reason}`)
             .setTimestamp()
         
-        message.channel.send(unmute1Embed)
+        message.channel.send(mute1Embed)
         const member = message.mentions.members.first()
-        member.roles.remove(mutedRole)
+        member.roles.add(mutedRole)
     }
 }

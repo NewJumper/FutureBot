@@ -13,15 +13,13 @@ module.exports = class AcceptCommand extends Commando.Command {
     }
 
     async run(message) {
-        const { member } = message
-
         message.channel.bulkDelete(1)
         .catch(console.error)
 
-        if (member.hasPermission('READ_MESSAGE_HISTORY')) {
+        if (message.member.hasPermission('READ_MESSAGE_HISTORY')) {
             return
         } else {
-            message.member.roles.add('631324009874718736')
+            message.member.roles.add('763412201427697725')
         }
     }
 }
