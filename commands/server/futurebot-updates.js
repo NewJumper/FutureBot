@@ -43,7 +43,9 @@ module.exports = class FuturebotUpdatesCommand extends Commando.Command {
             - removed \`-muted\`
             - removed \`mute-schema\`
             - removed \`mutes.js\``)
-            .setFooter('April 17, 2021', this.client.user.displayAvatarURL())  //UPDATE THE DATE!!!
+            .setFooter('June 1, 2021', this.client.user.displayAvatarURL())  //UPDATE THE DATE!!!
+
+        message.channel.send(update1Embed)
         
         const upcomingEmbed = new Discord.MessageEmbed()
             .setColor('GREEN')
@@ -54,7 +56,6 @@ module.exports = class FuturebotUpdatesCommand extends Commando.Command {
             // • a market and a shop feature
             // • ways to buy items and resources via a market or a shop
 
-        message.channel.send(update1Embed)
         message.channel.send(upcomingEmbed)
     }
 }
