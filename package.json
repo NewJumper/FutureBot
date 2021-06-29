@@ -1,6 +1,6 @@
 {
   "name": "futurebot",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Discord bot made by NewJumper with moderation and mathematical features along with an economic structure and a ranking system.",
   "main": "index.js",
   "scripts": {

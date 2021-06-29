@@ -56,7 +56,9 @@ module.exports = class PayCommand extends Commando.Command {
         const pay1Embed = new Discord.MessageEmbed()
             .setColor('GOLD')
             .setTitle('TRANSACTION COMPLETE')
-            .setDescription(`<@${message.author.id}> has given <@${target.id}> ${payment} coins! <@${target.id}> now has ${newBalance} coins and <@${message.author.id}> has ${remainingCoins} coins remaining.`)
+            .setDescription(`<@${message.author.id}> has given <@${target.id}> **${payment}** coins!
+            \n<@${target.id}> now has **${newBalance}** coins
+            <@${message.author.id}> now has **${remainingCoins}** coins`)
             .setTimestamp()
 
         message.channel.send(pay1Embed)

@@ -22,7 +22,7 @@ module.exports = class EarningsCommand extends Commando.Command {
             .setAuthor(`Earnings for ${message.author.tag}`, message.author.displayAvatarURL())
             .setDescription('**2 coins** every 24 hours\n**5 XP** every 24 hours *(to be integrated)*')
 
-        if (message.member.hasPermission('CHANGE_NICKNAME')) {
+        if (message.member.hasPermission('MENTION_EVERYONE')) {
             message.channel.send(earnings2Embed)
         } else {
             message.channel.send(earnings1Embed)

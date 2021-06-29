@@ -19,7 +19,7 @@ module.exports = class ServerUpdatesCommand extends Commando.Command {
 
         const update1Embed = new Discord.MessageEmbed()
             .setColor('#1b70bf')
-            .setTitle('**Server Update 2.6.1**')
+            .setTitle('**Server Update 2.7.0**')
             .setDescription(`= updated server rules and roles
             \n+ added <#831283256410112040>
             \n- removed @*emoji-requests*`)

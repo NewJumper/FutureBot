@@ -21,7 +21,7 @@ module.exports = class DailyCommand extends Commando.Command {
 
     async run(message) {
         let coins = 0
-        if (message.member.hasPermission('CHANGE_NICKNAME')) {
+        if (message.member.hasPermission('MENTION_EVERYONE')) {
             coins = 2
         } else {
             coins = 1
