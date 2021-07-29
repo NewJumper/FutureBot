@@ -1,7 +1,7 @@
 const Commando = require('discord.js-commando')
 const Discord = require('discord.js')
 
-const economy = require('../../economy')
+const economy = require('./economy')
 
 module.exports = class PayCommand extends Commando.Command {
     constructor(client) {

@@ -1,6 +1,6 @@
 const Commando = require('discord.js-commando')
 
-const economy = require('../../economy')
+const economy = require('./economy')
 
 module.exports = class ChangeBalanceCommand extends Commando.Command {
     constructor(client) {
@@ -11,7 +11,6 @@ module.exports = class ChangeBalanceCommand extends Commando.Command {
             memberName: 'change-balance',
             description: 'Give or take coins away from a specified user.',
             argsType: 'multiple',
-            clientPermissions: ['ADMINISTRATOR'],
             userPermissions: ['ADMINISTRATOR'],
             guildOnly: true
         })
@@ -30,6 +29,10 @@ module.exports = class ChangeBalanceCommand extends Commando.Command {
             message.reply('specify a valid number of coins to give or take.')
             return
         }
+        if (coins >= Math.pow(2, 64)) {
+            message.reply('that\'s too high of a number!')
+            return
+        }
 
         const guildId = message.guild.id
         const userId = mention.id
@@ -39,8 +42,11 @@ module.exports = class ChangeBalanceCommand extends Commando.Command {
         const changes = args[1].split("")
 
         if (changes[0] === '-') {
-            const changedAmount = changes.slice(1).join("")
-            message.channel.send(`<@${userId}> got ${changedAmount} coins taken away, they now have ${newCoins} coins.`)
+            const negativeAmount = changes.slice(1).join("")
+            message.channel.send(`<@${userId}> got ${negativeAmount} coins taken away, they now have ${newCoins} coins.`)
+        } else if (changes[0] === '+') {
+            const positiveAmount = changes.slice(1).join("")
+            message.channel.send(`<@${userId}> earned ${positiveAmount} coins, they now have ${newCoins} coins!`)
         } else {
             message.channel.send(`<@${userId}> earned ${coins} coins, they now have ${newCoins} coins!`)
         }

@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const Commando = require('discord.js-commando')
 
-const economy = require('../../economy')
+const economy = require('./economy')
 
 module.exports = class GambleCommand extends Commando.Command {
     constructor(client) {
@@ -14,7 +14,8 @@ module.exports = class GambleCommand extends Commando.Command {
             throttling: {
                 usages: 1,
                 duration: 60
-            }
+            },
+            ownerOnly: true
         })
     }
 
@@ -35,11 +36,11 @@ module.exports = class GambleCommand extends Commando.Command {
             return
         }
 
-        const coinsOwned = await economy.getCoins(guild.id, member.id)
-        if (coinsOwned < input) {
-            message.reply(`you do not have ${input} coins!`)
-            return
-        }
+        // const coinsOwned = await economy.getCoins(guild.id, member.id)
+        // if (coinsOwned < input) {
+        //     message.reply(`you do not have ${input} coins!`)
+        //     return
+        // }
 
         // randomizer
         const key1 = Math.round(Math.random() * input + 1)
@@ -105,7 +106,7 @@ module.exports = class GambleCommand extends Commando.Command {
         const gambleEmbed = new Discord.MessageEmbed()
             .setColor(colorSet)
             .setTitle(gambleResult)
-            .setDescription(`${gambleEnd} ${result} coins <@${message.author.id}>!`)
+            .setDescription(`${gambleEnd} ${result} coins`) //             .setDescription(`${gambleEnd} ${result} coins <@${message.author.id}>!`)
             .setTimestamp()
 
         message.channel.send(gambleEmbed)

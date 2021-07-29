@@ -3,6 +3,7 @@ const Commando = require('discord.js-commando')
 require('dotenv').config()
 const path = require('path')
 const mongo = require('./mongo')
+const levels = require('./commands/ranking/levels')
 
 const client = new Commando.CommandoClient({
 	owner: '627933033596583957',
@@ -11,9 +12,11 @@ const client = new Commando.CommandoClient({
 
 client.once('ready', async () => {
 	console.log('[+] Online')
-	client.user.setActivity(`in version 1.1.1`)
+	client.user.setActivity(`in version 1.2.0`)
 
 	await mongo().then(console.log('[+] Mongo Link'))
+
+	levels(client)
 
 	client.registry
 	.registerDefaultTypes()
@@ -22,6 +25,7 @@ client.once('ready', async () => {
 		['economy', 'Economy Commands'],
 		['miscellaneous', 'Miscellaneous Commands'],
 		['moderation', 'Moderation Commands'],
+		['ranking', 'Ranking Commands'],
 		['server', 'Server Commands']
 	])
 	.registerDefaultGroups()

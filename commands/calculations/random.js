@@ -7,14 +7,25 @@ module.exports = class RandomCommand extends Commando.Command {
             aliases: ['rng'],
             group: 'calculation',
             memberName: 'random',
-            description: 'Generate a random number between 1 and a specified number.',
+            description: 'Generate a random number between 1 and x or x through y.',
             argsType: 'multiple'
         })
     }
 
     async run(message, args) {
-        const number = parseInt(args[0])
+        const x = parseInt(args[0])
+        const y = parseInt(args[1])
 
-        message.channel.send(Math.round(Math.random() * number + 1))
+        if (!y) {
+            message.channel.send(Math.floor(Math.random() * x + 1))
+            return
+        }
+        
+        if (x > y) {
+            message.reply(`make sure to have the larger number second: \`-random ${y} ${x}\``)
+            return
+        } else {
+            message.channel.send(Math.floor(Math.random() * (y - x + 1)) + x)
+        }
     }
 }

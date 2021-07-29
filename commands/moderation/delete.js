@@ -16,9 +16,6 @@ module.exports = class DeleteCommand extends Commando.Command {
     }
 
     async run(message, args) {
-        message.channel.bulkDelete(1)
-        .catch(console.error);
-
         const amount = parseInt(args[0]) + 1
 
         if (isNaN(amount)) {

@@ -8,16 +8,13 @@ module.exports = class EndCommand extends Commando.Command {
             memberName: 'end',
             description: 'Ends the bot\'s process.',
             clientPermissions: ['ADMINISTRATOR'],
+            userPermissions: ['ADMINISTRATOR'],
             ownerOnly: true,
             hidden: true
         })
     }
 
-    async run(message) {
-        message.channel.bulkDelete(1)
-        .catch(console.error);
-
-        message.channel.send(`Ending...`)
-        .then(process.exit())
+    async run() {
+        process.exit()
     }
 }

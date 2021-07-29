@@ -41,7 +41,7 @@ module.exports = class DebugCommand extends Commando.Command {
                     { name: 'Platform', value: `${os.platform()}`, inline: true},
                     { name: 'TSLR', value: `${Math.abs(process.uptime().toFixed(2) / 60).toFixed(2)} minutes`, inline: true}, //maybe rename to Time since last update
                     // dependencies
-                    { name: 'FutureBot Dependencies', value: `7`, inline: true},
+                    { name: 'FutureBot Dependencies', value: `8`, inline: true},
                     { name: 'Node Version', value: `\`${process.version}\``, inline: true},
                     { name: 'Discord.js Version', value: `\`v${version}\``, inline: true},
                     { name: 'FutureBot Version', value: `\`v${mainpkg.version}\``, inline: true},

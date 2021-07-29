@@ -1,6 +1,6 @@
 {
   "name": "futurebot",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A Discord bot made by NewJumper with moderation and mathematical features along with an economic structure and a ranking system.",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "author": "NewJumper",
   "license": "ISC",
   "dependencies": {
+    "discord-xp": "^1.1.16",
     "discord.js": "^12.5.3",
     "discord.js-commando": "git+https://github.com/discordjs/Commando.git",
     "discord.js-menu": "^2.3.1",

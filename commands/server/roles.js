@@ -8,7 +8,6 @@ module.exports = class RolesCommand extends Commando.Command {
             group: 'server',
             memberName: 'roles',
             description: 'Server roles.',
-            clientPermissions: ['ADMINISTRATOR'],
             userPermissions: ['ADMINISTRATOR'],
             guildOnly: true
         })

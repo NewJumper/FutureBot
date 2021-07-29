@@ -8,7 +8,6 @@ module.exports = class ServerUpdatesCommand extends Commando.Command {
             group: 'server',
             memberName: 'server-updates',
             description: 'Server updates.',
-            clientPermissions: ['ADMINISTRATOR'],
             userPermissions: ['ADMINISTRATOR']
         })
     }
@@ -22,8 +21,9 @@ module.exports = class ServerUpdatesCommand extends Commando.Command {
             .setTitle('**Server Update 2.7.0**')
             .setDescription(`= updated server rules and roles
             \n+ added <#831283256410112040>
+            + added <#858876307378405426> (because <@817891778736423023> was bored...)
             \n- removed @*emoji-requests*`)
-            .setFooter('April 3, 2021')   //UPDATE THE DATE!!!!
+            .setFooter('July 23, 2021')   //UPDATE THE DATE!!!!
 
         message.channel.send(update1Embed)
     }

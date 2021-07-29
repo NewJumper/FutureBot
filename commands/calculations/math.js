@@ -20,6 +20,6 @@ module.exports = class MathCommand extends Commando.Command {
         operator === '-' ? message.say(number1 - number2) : 
         operator === '*' ? message.say(number1 * number2) :
         operator === '/' ? message.say(number1 / number2) :
-        operator === '^' ? message.say(Math.pow(number1, number2)) : message.say('unknown operation')
+        operator === '^' ? message.say(Math.pow(number1, number2)) : message.say('unknown operation, include spaces')
     }
 }

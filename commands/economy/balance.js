@@ -1,7 +1,7 @@
 const Commando = require('discord.js-commando')
 const Discord = require('discord.js')
 
-const economy = require('../../economy')
+const economy = require('./economy')
 
 module.exports = class BalanceCommand extends Commando.Command {
     constructor(client) {
@@ -10,7 +10,7 @@ module.exports = class BalanceCommand extends Commando.Command {
             aliases: ['bal'],
             group: 'economy',
             memberName: 'balance',
-            description: 'View your\'s or a specified user\'s coin balance.'
+            description: 'View your\'s or another user\'s coin balance.'
         })
     }
 

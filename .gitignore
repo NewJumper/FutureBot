@@ -2,6 +2,5 @@
 node_modules
 .env
 
-# commands
-test.js
-test2.js
+# testing
+testing

@@ -8,7 +8,6 @@ module.exports = class RulesCommand extends Commando.Command {
             group: 'server',
             memberName: 'rules',
             description: 'Server rules.',
-            clientPermissions: ['ADMINISTRATOR'],
             userPermissions: ['ADMINISTRATOR']
         })
     }

@@ -1,4 +1,4 @@
-const profileSchema = require('./schemas/profile-schema')
+const economySchema = require('../../schemas/economy-schema')
 
 const coinsCache = {}
 
@@ -7,7 +7,7 @@ module.exports = (client) => {}
 module.exports.addCoins = async (guildId, userId, coins) => {
     // console.log('Running findOneAndUpdate()')
 
-    const result = await profileSchema.findOneAndUpdate(
+    const result = await economySchema.findOneAndUpdate(
         {
             guildId,
             userId
@@ -38,7 +38,7 @@ module.exports.getCoins = async (guildId, userId) => {
 
     // console.log('Running findOne()')
 
-    const result = await profileSchema.findOne({
+    const result = await economySchema.findOne({
         guildId,
         userId
     })
@@ -48,7 +48,7 @@ module.exports.getCoins = async (guildId, userId) => {
         coins = result.coins
     } else {
         // console.log('Inserting a document')
-        await new profileSchema({
+        await new economySchema({
             guildId,
             userId,
             coins

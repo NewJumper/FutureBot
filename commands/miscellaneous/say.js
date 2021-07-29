@@ -1,14 +1,12 @@
 const Commando = require('discord.js-commando')
 
-module.exports = class SendCommand extends Commando.Command {
+module.exports = class SayCommand extends Commando.Command {
     constructor(client) {
         super(client, {
-            name: 'send',
-            aliases: ['say'],
+            name: 'say',
             group: 'miscellaneous',
-            memberName: 'send',
+            memberName: 'say',
             description: 'You know what it does.',
-            clientPermissions: ['ADMINISTRATOR'],
             userPermissions: ['ADMINISTRATOR'],
             hidden: true
         })
@@ -17,6 +15,10 @@ module.exports = class SendCommand extends Commando.Command {
     async run(message, args) {
         message.channel.bulkDelete(1)
         .catch(console.error);
+
+        if (!args[0]) {
+            return
+        }
 
         message.channel.send(args)
     }

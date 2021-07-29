@@ -1,7 +1,7 @@
 const Commando = require('discord.js-commando')
 const Discord = require('discord.js')
 
-const economy = require('../../economy')
+const economy = require('./economy')
 
 module.exports = class DailyCommand extends Commando.Command {
     constructor(client) {
@@ -15,7 +15,8 @@ module.exports = class DailyCommand extends Commando.Command {
                 duration: 86400 // 24 hours
             },
             userPermissions: ['READ_MESSAGE_HISTORY'],
-            guildOnly: true
+            guildOnly: true,
+            ownerOnly: true // remove
         })
     }
 

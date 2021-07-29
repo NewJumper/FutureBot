@@ -25,7 +25,7 @@ module.exports = class MuteCommand extends Commando.Command {
             return
         }
 
-        const mutedRole = message.guild.roles.cache.find(role => role.name === '▥ In Prison')
+        const mutedRole = message.guild.roles.cache.find(role => role.id === '800130999152410674')
         if (!mutedRole) {
             message.reply('there is no \`muted\` role.')
             return
