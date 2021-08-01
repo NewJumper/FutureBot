@@ -5,7 +5,7 @@ module.exports = class PingCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'ping',
-            group: 'miscellaneous',
+            group: 'utility',
             memberName: 'ping',
             description: 'Checks the bot\'s and API\'s ping.',
             throttling: {

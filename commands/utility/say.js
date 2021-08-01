@@ -4,7 +4,7 @@ module.exports = class SayCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'say',
-            group: 'miscellaneous',
+            group: 'utility',
             memberName: 'say',
             description: 'You know what it does.',
             userPermissions: ['ADMINISTRATOR'],

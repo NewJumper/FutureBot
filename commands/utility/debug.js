@@ -9,7 +9,7 @@ module.exports = class DebugCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'debug',
-            group: 'miscellaneous',
+            group: 'utility',
             memberName: 'debug',
             description: 'View FutureBot\'s statistics and extra information.',
             throttling: {

@@ -5,8 +5,6 @@ const coinsCache = {}
 module.exports = (client) => {}
 
 module.exports.addCoins = async (guildId, userId, coins) => {
-    // console.log('Running findOneAndUpdate()')
-
     const result = await economySchema.findOneAndUpdate(
         {
             guildId,
@@ -36,8 +34,6 @@ module.exports.getCoins = async (guildId, userId) => {
         return cachedValue
     }
 
-    // console.log('Running findOne()')
-
     const result = await economySchema.findOne({
         guildId,
         userId
@@ -47,7 +43,6 @@ module.exports.getCoins = async (guildId, userId) => {
     if (result) {
         coins = result.coins
     } else {
-        // console.log('Inserting a document')
         await new economySchema({
             guildId,
             userId,

@@ -4,7 +4,7 @@ module.exports = class EndCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'end',
-            group: 'miscellaneous',
+            group: 'utility',
             memberName: 'end',
             description: 'Ends the bot\'s process.',
             clientPermissions: ['ADMINISTRATOR'],

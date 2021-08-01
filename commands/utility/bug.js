@@ -5,7 +5,7 @@ module.exports = class BugCommand extends Commando.Command {
     constructor(client) {
         super(client, {
             name: 'bug',
-            group: 'miscellaneous',
+            group: 'utility',
             memberName: 'bug',
             description: 'Report any bugs or issues with FutureBot.'
         })
