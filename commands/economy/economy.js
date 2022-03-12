@@ -1,10 +1,10 @@
 const economySchema = require('../../schemas/economy-schema')
 
-const coinsCache = {}
+const bitsCache = {}
 
 module.exports = (client) => {}
 
-module.exports.addCoins = async (guildId, userId, coins) => {
+module.exports.addBits = async (guildId, userId, bits) => {
     const result = await economySchema.findOneAndUpdate(
         {
             guildId,
@@ -14,7 +14,7 @@ module.exports.addCoins = async (guildId, userId, coins) => {
             guildId,
             userId,
             $inc: {
-                coins
+                bits
             }
         },
         {
@@ -23,13 +23,13 @@ module.exports.addCoins = async (guildId, userId, coins) => {
         }
     )
 
-    coinsCache[`${guildId}-${userId}`] = result.coins
+    bitsCache[`${guildId}-${userId}`] = result.bits
 
-    return result.coins
+    return result.bits
 }
 
-module.exports.getCoins = async (guildId, userId) => {
-    const cachedValue = coinsCache[`${guildId}-${userId}`]
+module.exports.getBits = async (guildId, userId) => {
+    const cachedValue = bitsCache[`${guildId}-${userId}`]
     if (cachedValue) {
         return cachedValue
     }
@@ -39,18 +39,18 @@ module.exports.getCoins = async (guildId, userId) => {
         userId
     })
 
-    let coins = 0
+    let bits = 0
     if (result) {
-        coins = result.coins
+        bits = result.bits
     } else {
         await new economySchema({
             guildId,
             userId,
-            coins
+            bits
         }).save()
     }
 
-    coinsCache[`${guildId}-${userId}`] = coins
+    bitsCache[`${guildId}-${userId}`] = bits
 
-    return coins
+    return bits
 }

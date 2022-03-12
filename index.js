@@ -12,7 +12,7 @@ const client = new Commando.CommandoClient({
 
 client.once('ready', async () => {
 	console.log('[+] Online')
-	client.user.setActivity(`in version 1.2.1`)
+	client.user.setActivity(`in version 1.3.0`)
 
 	await mongo().then(console.log('[+] Mongo Link'))
 

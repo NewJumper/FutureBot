@@ -8,7 +8,7 @@ const reqString = {
 const economySchema = mongoose.Schema({
     userId: reqString,
     guildId: reqString,
-    coins: {
+    bits: {
         type: Number,
         default: 0
     }

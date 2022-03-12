@@ -16,32 +16,20 @@ module.exports = class DailyCommand extends Commando.Command {
             },
             userPermissions: ['READ_MESSAGE_HISTORY'],
             guildOnly: true,
-            ownerOnly: true // remove
         })
     }
 
     async run(message) {
-        let coins = 0
-        if (message.member.hasPermission('MENTION_EVERYONE')) {
-            coins = 2
-        } else {
-            coins = 1
-        }
+        const bitRandom = Math.round(Math.random() * 20)
 
         const guildId = message.guild.id
         const userId = message.author.id
-        const newCoins = await economy.addCoins(guildId, userId, coins)
-        
-        let coinString = 'coin'
-        if (coins === 2) {
-            coinString = 'coins'
-        }
+        const newBits = await economy.addBits(guildId, userId, bitRandom)
 
-        // embed?
         const daily1Embed = new Discord.MessageEmbed()
             .setColor('GREEN')
             .setAuthor(`${message.author.username}'s Rewards:`, message.author.displayAvatarURL())
-            .setDescription(`**You earned**:\n• ${coins.toString()} ${coinString}\n\nYou now have ${newCoins} coins.`)
+            .setDescription(`**You earned**:\n• ${bitRandom} bits\n• ${newBits} total bits`)
             .setTimestamp()
 
         message.channel.send(daily1Embed)

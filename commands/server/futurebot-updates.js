@@ -20,12 +20,16 @@ module.exports = class FuturebotUpdatesCommand extends Commando.Command {
 
         const update1Embed = new Discord.MessageEmbed()
             .setColor('#1b70bf')
-            .setTitle('**FutureBot Update 1.2.1**')
+            .setTitle('**FutureBot Update 1.3.0**')
             .setURL('https://github.com/NewJumper/FutureBot/releases')
             .setDescription(`**What's New:**
-            = updated and renamed \`profile-schema\` to \`economy-schema\`
-            = updated \`economy.js\`
-            = renamed miscellaneous folder and group to utility to match the Help Menu`)
+            = renamed coins to **bits**
+            = modified \`-daily\`; now gives a random amount of coins between 1 and 20 daily
+            = updated \`.gitignore\`
+            = updated security of FutureBot
+            = updated dependencies
+            \n- removed \`-earnings\`
+            - removed \`-gamble\` for now`)
             .setFooter('July 31, 2021', this.client.user.displayAvatarURL())  //UPDATE THE DATE!!!
 
         message.channel.send(update1Embed)

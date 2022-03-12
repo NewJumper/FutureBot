@@ -89,13 +89,11 @@ module.exports = class Help2Command extends Commando.Command {
                     .setColor('#ebbe2d')
                     .setTitle('Economy Commands')
                     .setDescription(`***\`-balance\`***
-                    View your's or a specified user's coin balance.
+                    View your's or a specified user's bits.
                     \n***\`-change-balance\`*** \`A\`
-                    Give or take coins away from a specified user.
-                    \n***\`-gamble\`*** \`A\`
-                    Gamble your life savings away.
+                    Give or take bits away from a specified user.
                     \n***\`-pay\`***
-                    Pay a user a certain amount of coins.*`)
+                    Pay a user a certain amount of bits.*`)
                     .setFooter('Page 3', this.client.user.displayAvatarURL()),
                 reactions: {
                     '⬅️': 'previous',

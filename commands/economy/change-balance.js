@@ -9,7 +9,7 @@ module.exports = class ChangeBalanceCommand extends Commando.Command {
             aliases: ['chgbal'],
             group: 'economy',
             memberName: 'change-balance',
-            description: 'Give or take coins away from a specified user.',
+            description: 'Give or take bits away from a specified user.',
             argsType: 'multiple',
             userPermissions: ['ADMINISTRATOR'],
             guildOnly: true
@@ -24,12 +24,12 @@ module.exports = class ChangeBalanceCommand extends Commando.Command {
             return
         }
 
-        const coins = args[1]
-        if (isNaN(coins)) {
-            message.reply('specify a valid number of coins to give or take.')
+        const bits = args[1]
+        if (isNaN(bits)) {
+            message.reply('specify a valid amount of bits to give or take.')
             return
         }
-        if (coins >= Math.pow(2, 64)) {
+        if (bits >= Math.pow(2, 64)) {
             message.reply('that\'s too high of a number!')
             return
         }
@@ -37,18 +37,18 @@ module.exports = class ChangeBalanceCommand extends Commando.Command {
         const guildId = message.guild.id
         const userId = mention.id
 
-        const newCoins = await economy.addCoins(guildId, userId, coins)
+        const newBits = await economy.addBits(guildId, userId, bits)
 
         const changes = args[1].split("")
 
         if (changes[0] === '-') {
             const negativeAmount = changes.slice(1).join("")
-            message.channel.send(`<@${userId}> got ${negativeAmount} coins taken away, they now have ${newCoins} coins.`)
+            message.channel.send(`<@${userId}> got ${negativeAmount} bits taken away, they now have ${newBits} bits.`)
         } else if (changes[0] === '+') {
             const positiveAmount = changes.slice(1).join("")
-            message.channel.send(`<@${userId}> earned ${positiveAmount} coins, they now have ${newCoins} coins!`)
+            message.channel.send(`<@${userId}> earned ${positiveAmount} bits, they now have ${newBits} bits!`)
         } else {
-            message.channel.send(`<@${userId}> earned ${coins} coins, they now have ${newCoins} coins!`)
+            message.channel.send(`<@${userId}> earned ${bits} bits, they now have ${newBits} bits!`)
         }
     }
 }

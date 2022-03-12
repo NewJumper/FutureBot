@@ -10,7 +10,7 @@ module.exports = class PayCommand extends Commando.Command {
             aliases: ['give'],
             group: 'economy',
             memberName: 'pay',
-            description: 'Pay a user a certain amount of coins.',
+            description: 'Pay a user a certain amount of bits.',
             argsType: 'multiple',
             guildOnly: true
         })
@@ -21,33 +21,32 @@ module.exports = class PayCommand extends Commando.Command {
         
         const target = message.mentions.users.first()
         if (!target) {
-            message.reply('specify a user to give coins to.')
+            message.reply('specify a user to give bits to.')
             return
         }
 
         const payment = args[1]
         if (payment < 0) {
-            message.reply('you can\'t rob anyone!!! yet...')
             return
         }
 
         if (isNaN(payment)) {
-            message.reply(`specify an amount of coins you want to give <@${target.id}>.`)
+            message.reply(`specify an amount of bits you want to give <@${target.id}>.`)
             return
         }
 
-        const coinsOwned = await economy.getCoins(guild.id, member.id)
-        if (coinsOwned < payment) {
-            message.reply(`you do not have ${payment} coins!`)
+        const bitsOwned = await economy.getBits(guild.id, member.id)
+        if (bitsOwned < payment) {
+            message.reply(`you do not have ${payment} bits!`)
             return
         }
 
-        const remainingCoins = await economy.addCoins(
+        const remainingBits = await economy.addBits(
             guild.id,
             member.id,
             payment * -1
         )
-        const newBalance = await economy.addCoins(
+        const newBalance = await economy.addBits(
             guild.id,
             target.id,
             payment
@@ -56,9 +55,9 @@ module.exports = class PayCommand extends Commando.Command {
         const pay1Embed = new Discord.MessageEmbed()
             .setColor('GOLD')
             .setTitle('TRANSACTION COMPLETE')
-            .setDescription(`<@${message.author.id}> has given <@${target.id}> **${payment}** coins!
-            \n<@${target.id}> now has **${newBalance}** coins
-            <@${message.author.id}> now has **${remainingCoins}** coins`)
+            .setDescription(`<@${message.author.id}> has given <@${target.id}> **${payment}** bits!
+            \n<@${target.id}> now has **${newBalance}** bits
+            <@${message.author.id}> now has **${remainingBits}** bits`)
             .setTimestamp()
 
         message.channel.send(pay1Embed)

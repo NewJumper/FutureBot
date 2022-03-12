@@ -10,7 +10,7 @@ module.exports = class BalanceCommand extends Commando.Command {
             aliases: ['bal'],
             group: 'economy',
             memberName: 'balance',
-            description: 'View your\'s or another user\'s coin balance.'
+            description: 'View your\'s or another user\'s bits.'
         })
     }
 
@@ -20,11 +20,11 @@ module.exports = class BalanceCommand extends Commando.Command {
         const guildId = message.guild.id
         const userId = target.id
 
-        const coins = await economy.getCoins(guildId, userId)
+        const bits = await economy.getBits(guildId, userId)
 
         const balance1Embed = new Discord.MessageEmbed()
             .setColor('GOLD')
-            .setDescription(`<@${userId}> has ${coins} coins!`)
+            .setDescription(`<@${userId}> has ${bits} bits!`)
 
         message.channel.send(balance1Embed)
     }
